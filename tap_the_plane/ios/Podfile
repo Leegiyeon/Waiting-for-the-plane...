@@ -1,0 +1,35 @@
+platform :ios, '12.0'
+ENV['COCOAPODS_DISABLE_STATS'] = 'true'
+
+project 'Runner', { 'Debug' => :debug, 'Profile' => :release, 'Release' => :release }
+
+def flutter_root
+  generated = File.expand_path(File.join('..','Flutter','Generated.xcconfig'), __FILE__)
+  raise "#{generated} must exist. Run flutter pub get first." unless File.exist?(generated)
+  File.foreach(generated) { |line| return $1.strip if line =~ /FLUTTER_ROOT=(.*)/ }
+  raise "FLUTTER_ROOT not found in #{generated}"
+end
+
+require File.expand_path(File.join('packages','flutter_tools','bin','podhelper'), flutter_root)
+
+flutter_ios_podfile_setup
+
+target 'Runner' do
+  # Do NOT add `use_frameworks!` unless a specific pod requires it.
+  # Flutter defaults work best with static libraries.
+  flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  target 'RunnerTests' do
+    inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |t|
+    flutter_additional_ios_build_settings(t)
+    t.build_configurations.each do |c|
+      c.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+      c.build_settings['SWIFT_VERSION'] = '5.0'
+    end
+  end
+end
