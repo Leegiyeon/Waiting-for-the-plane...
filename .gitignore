@@ -1,0 +1,91 @@
+# =========================
+# OS / Misc
+# =========================
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*.class
+*.pyc
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# =========================
+# IDE settings
+# =========================
+*.iml
+*.ipr
+*.iws
+.idea/
+.vscode/
+**/xcuserdata/
+**/xcshareddata/
+**/.settings/
+**/.classpath
+**/.project
+
+# =========================
+# Flutter / Dart
+# =========================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.metadata
+
+# =========================
+# Build outputs
+# =========================
+/build/
+**/build/
+
+# Android specific
+**/android/.gradle/
+**/android/local.properties
+**/android/key.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/app/debug
+**/android/app/profile
+**/android/app/release
+
+# iOS specific
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/App.framework
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/ServiceDefinitions.json
+ios/Runner.xcworkspace/
+ios/Runner.xcodeproj/
+ios/DerivedData/
+ios.bak/
+
+# =========================
+# Desktop platforms (optional)
+# =========================
+macos/
+linux/
+windows/
+
+# =========================
+# Web build artifacts
+# =========================
+web/.dart_tool/
+web/build/
+
+# =========================
+# Symbolication / Obfuscation
+# =========================
+app.*.symbols
+app.*.map.json
